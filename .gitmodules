@@ -1,0 +1,3 @@
+[submodule "src_bruce"]
+	path = src_bruce
+	url = https://github.com/BruceDevices/firmware.git
