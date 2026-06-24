@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bruce Firmware Builder" />
+    <title>Bruce — Firmware Builder</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>" />
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+      :root{--mono:'JetBrains Mono','Fira Code',monospace;--sans:'Inter',system-ui,sans-serif}
+
+      .dark{--bg:#0a0a0f;--bg2:#12121a;--card:#1a1a2e;--hover:#222240;--border:#2a2a4a;--text:#e4e4f0;--text2:#8888aa;--text3:#555577;--purple:#8b5cf6;--aqua:#06b6d4;--green:#22c55e;--red:#ef4444;--yellow:#eab308;--grad:linear-gradient(135deg,#8b5cf6,#06b6d4)}
+      .light{--bg:#f8f9fa;--bg2:#ffffff;--card:#ffffff;--hover:#f0f0f5;--border:#d0d0dd;--text:#1a1a2e;--text2:#666688;--text3:#9999bb;--purple:#7c3aed;--aqua:#0891b2;--green:#16a34a;--red:#dc2626;--yellow:#ca8a04;--grad:linear-gradient(135deg,#7c3aed,#0891b2)}
+
+      html{font-size:16px}
+      body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+      ::selection{background:rgba(139,92,246,.3);color:#fff}
+      ::-webkit-scrollbar{width:8px}
+      ::-webkit-scrollbar-track{background:var(--bg2)}
+      ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+      @media(max-width:768px){
+        .build-grid{grid-template-columns:1fr!important}
+        .build-sidebar{order:2}
+        .build-main{order:1}
+      }
+    </style>
+    <script>
+      (function(){document.documentElement.className=localStorage.getItem('bruce-theme')||'dark'})()
+    </script>
+    <script defer phx-track-static src="https://cdn.jsdelivr.net/npm/phoenix@1.8.8/priv/static/phoenix.min.js"></script>
+    <script defer phx-track-static src="https://cdn.jsdelivr.net/npm/phoenix_live_view@1.2.3/priv/static/phoenix_live_view.min.js"></script>
+  </head>
+  <body>
+    {@inner_content}
+  </body>
+</html>

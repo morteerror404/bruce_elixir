@@ -1,6 +1,13 @@
 import Config
 
-# Add configuration that is only needed when running on the host here.
+config :phoenix, :stacktrace_depth, 20
+
+config :bruce_elixir, BruceElixirWeb.Endpoint,
+  http: [ip: {0, 0, 0, 0}, port: 4000],
+  check_origin: false,
+  code_reloader: true,
+  debug_errors: true,
+  watchers: []
 
 config :nerves_runtime,
   kv_backend:

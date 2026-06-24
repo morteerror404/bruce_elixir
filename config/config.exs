@@ -18,8 +18,22 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1782266351"
 
+config :phoenix, :json_library, Jason
+
+config :bruce_elixir, BruceElixirWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
+  url: [host: "localhost"],
+  secret_key_base: "lA0Kk81TYgcfn6VBUGLT8qQIIJNnKgyfT51JG43o0ADQ5mdq0+91lmT9ivbNDB3D1upxGweqPCPoIgciv8eE6A==",
+  render_errors: [formats: [html: BruceElixirWeb.ErrorHTML, json: BruceElixirWeb.ErrorJSON]],
+  pubsub_server: BruceElixir.PubSub,
+  live_view: [signing_salt: "bruce_salt"]
+
 if Mix.target() == :host do
   import_config "host.exs"
 else
   import_config "target.exs"
+end
+
+if File.exists?("config/nerves_features.exs") do
+  import_config "nerves_features.exs"
 end

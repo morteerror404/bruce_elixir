@@ -9,9 +9,8 @@ defmodule BruceElixir.Application do
   def start(_type, _args) do
     children =
       [
-        # Children for all targets
-        # Starts a worker by calling: BruceElixir.Worker.start_link(arg)
-        # {BruceElixir.Worker, arg},
+        BruceElixir.PubSub,
+        BruceElixir.BuildHistory
       ] ++ target_children()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -24,20 +23,12 @@ defmodule BruceElixir.Application do
   if Mix.target() == :host do
     defp target_children() do
       [
-        # Children that only run on the host during development or test.
-        # In general, prefer using `config/host.exs` for differences.
-        #
-        # Starts a worker by calling: Host.Worker.start_link(arg)
-        # {Host.Worker, arg},
+        {BruceElixirWeb.Endpoint, []}
       ]
     end
   else
     defp target_children() do
-      [
-        # Children for all targets except host
-        # Starts a worker by calling: Target.Worker.start_link(arg)
-        # {Target.Worker, arg},
-      ]
+      []
     end
   end
 end

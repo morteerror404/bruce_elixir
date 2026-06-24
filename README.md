@@ -1,4 +1,6 @@
-# Bruce Elixir - Firmware Predatório Híbrido (C++ & BEAM)
+# Bruce Elixir - (C++ & BEAM)
+
+## EM PRODUÇÃO FAVOR NÃO ENXER MEU SACO 
 
 **Bruce Elixir** é um projeto revolucionário que fusiona o aclamado [firmware](https://github.com/BruceDevices/firmware) [Bruce Devices](https://github.com/BruceDevices) com a resiliência e elegância do ecossistema [Elixir](https://elixir.hexdocs.pm/introduction.html)/[Erlang](https://www.erlang.org/), criando uma plataforma de hardware hacking sem precedentes para microcontroladores [ESP32](https://pt.wikipedia.org/wiki/ESP32).
 
@@ -108,6 +110,9 @@ mix atomvm.pack
 
 # Build completo do firmware (compila C++ + empacota Elixir)
 mix bruce.build --target esp32_s3
+
+# mix escript.build && chmod +x bruce_elixir    
+MIX_TARGET=host mix phx.server
 ```
 
 ---

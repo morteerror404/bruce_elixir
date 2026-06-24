@@ -14,7 +14,9 @@ defmodule BruceElixir.MixProject do
       listeners: listeners(Mix.target(), Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      releases: [{@app, release()}]
+      releases: [{@app, release()}],
+       escript: [main_module: BruceElixir.CLI.Main],
+      aliases: [bruce: "run -e 'BruceElixir.CLI.Main.main([])'"],
     ]
   end
 
@@ -34,11 +36,16 @@ defmodule BruceElixir.MixProject do
   defp deps do
     [
       # Dependencies for all targets
+      {:ex_ratatui, "~> 0.11"},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_live_view, "~> 1.0"},
+      {:phoenix_html, "~> 4.0"},
+      {:bandit, "~> 1.0"},
+      {:jason, "~> 1.4"},
       {:nerves, "~> 1.13", runtime: false},
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.11.0"},
       {:toolshed, "~> 0.4.0"},
-
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
       {:nerves_runtime, "~> 0.13.12"},
@@ -79,7 +86,6 @@ defmodule BruceElixir.MixProject do
     ]
   end
 
-  # Uncomment the following line if using Phoenix > 1.8.
-  # defp listeners(:host, :dev), do: [Phoenix.CodeReloader]
+  defp listeners(:host, :dev), do: [Phoenix.CodeReloader]
   defp listeners(_, _), do: []
 end
