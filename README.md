@@ -94,6 +94,9 @@ cd bruce_elixir
 ### 🛠️ Comandos Essenciais do Ambiente
 
 ```bash
+# atualiza para a ultima versão estável do bruce 
+mix update
+
 # Baixar dependências do Elixir
 mix deps.get
 
@@ -281,7 +284,7 @@ O projeto é aberto a contribuições! Áreas de foco:
 
 ## 📜 Licença
 
-Este projeto é distribuído sob licença MIT, permitindo uso comercial e modificação livre.
+Este projeto é distribuído sob licença [AGPLv3 - GNU AFFERO GENERAL PUBLIC LICENSE V3](https://www.gnu.org/licenses/agpl-3.0-standalone.html).
 
 ---
 
